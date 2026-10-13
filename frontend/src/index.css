@@ -1,0 +1,368 @@
+/* ================= THEME: edit colors here ================= */
+:root {
+  --bg: #0a0a12;
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-hover: rgba(255, 255, 255, 0.09);
+  --line: rgba(255, 255, 255, 0.1);
+  --text: #f4f4ff;
+  --muted: #8f93b5;
+
+  --lime: #c6ff3d;
+  --cyan: #22d3ee;
+  --pink: #ff4d9d;
+  --violet: #8b5cf6;
+
+  --radius: 16px;
+}
+
+/* ================= BASE ================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  background:
+    radial-gradient(520px 420px at 0% 0%, rgba(139, 92, 246, 0.35), transparent 65%),
+    radial-gradient(520px 420px at 100% 20%, rgba(255, 77, 157, 0.22), transparent 65%),
+    radial-gradient(520px 420px at 50% 100%, rgba(34, 211, 238, 0.18), transparent 65%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+  background: rgba(10, 10, 18, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand:hover {
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--bg);
+  background: linear-gradient(135deg, var(--lime), var(--cyan));
+  border-radius: 12px;
+  transform: rotate(-6deg);
+  box-shadow: 0 6px 20px rgba(198, 255, 61, 0.35);
+  transition: transform 0.2s;
+}
+
+.brand:hover .brand-mark {
+  transform: rotate(6deg) scale(1.08);
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link {
+  padding: 8px 16px;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.nav-link:hover {
+  color: var(--text);
+  background: var(--surface-hover);
+  text-decoration: none;
+}
+
+.nav-link.active {
+  color: var(--bg);
+  background: var(--lime);
+}
+
+.nav-cta {
+  padding: 9px 18px;
+  color: var(--bg);
+  font-weight: 800;
+  font-size: 14px;
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--lime), var(--cyan));
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(198, 255, 61, 0.3);
+  transition: transform 0.15s;
+}
+
+.nav-cta:hover {
+  text-decoration: none;
+  transform: translateY(-2px) rotate(-1deg);
+}
+
+button.nav-btn {
+  margin: 0;
+  padding: 8px 16px;
+  color: var(--text);
+  font-size: 14px;
+  background: transparent;
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+
+button.nav-btn:hover {
+  background: rgba(255, 77, 157, 0.15);
+  border-color: var(--pink);
+  box-shadow: none;
+  transform: none;
+  filter: none;
+}
+
+/* ================= PAGE CARD ================= */
+.page {
+  max-width: 640px;
+  margin: 36px auto;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+}
+
+/* ================= TYPOGRAPHY ================= */
+h2 {
+  margin: 0 0 22px;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  background: linear-gradient(90deg, var(--lime), var(--cyan) 60%, var(--violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+h3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 38px 0 14px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pink);
+}
+
+h3::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--line), transparent);
+}
+
+h4 {
+  margin: 22px 0 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+/* every text line (member, expense, balance, payment) is a row card */
+p {
+  margin: 8px 0;
+  padding: 13px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--violet);
+  border-radius: var(--radius);
+  transition: transform 0.15s, background 0.15s;
+}
+
+p:hover {
+  background: var(--surface-hover);
+  transform: translateX(3px);
+}
+
+/* rows with a button (Suggested payments) */
+p:has(button) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-left-color: var(--lime);
+}
+
+a {
+  color: var(--cyan);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ================= FORMS ================= */
+input,
+select {
+  width: 100%;
+  margin: 6px 0;
+  padding: 13px 16px;
+  color: var(--text);
+  font-size: 15px;
+  font-family: inherit;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+input::placeholder {
+  color: #6c7096;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.09);
+  border-color: var(--lime);
+  box-shadow: 0 0 0 4px rgba(198, 255, 61, 0.15);
+}
+
+select option {
+  background: #14142a;
+  color: var(--text);
+}
+
+/* checkbox rows (Split between) */
+div:has(> input[type='checkbox']) {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+  padding: 11px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+div:has(> input[type='checkbox']):hover {
+  background: var(--surface-hover);
+}
+
+input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  margin: 0 12px 0 0;
+  accent-color: var(--lime);
+  cursor: pointer;
+}
+
+/* ================= BUTTONS ================= */
+button {
+  margin: 8px 8px 8px 0;
+  padding: 12px 22px;
+  color: var(--bg);
+  font-size: 14px;
+  font-weight: 800;
+  font-family: inherit;
+  background: linear-gradient(135deg, var(--lime), var(--cyan));
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.35), 0 10px 24px rgba(198, 255, 61, 0.25);
+  transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+}
+
+button:hover {
+  transform: translateY(-2px) rotate(-0.6deg);
+  filter: brightness(1.08);
+}
+
+button:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+}
+
+/* Settle button inside payment rows */
+p button {
+  margin: 0;
+  padding: 8px 18px;
+  color: #fff;
+  font-size: 13px;
+  background: linear-gradient(135deg, var(--pink), var(--violet));
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.35), 0 8px 20px rgba(255, 77, 157, 0.3);
+}
+
+/* group buttons on the dashboard: add className="secondary" to them */
+button.secondary {
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+
+button.secondary:hover {
+  border-color: var(--lime);
+  background: var(--surface-hover);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 640px) {
+  .navbar {
+    padding: 12px 16px;
+  }
+
+  .brand-name {
+    font-size: 16px;
+  }
+
+  .page {
+    margin: 16px 12px;
+    padding: 20px;
+    border-radius: 22px;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand-name {
+    display: none;
+  }
+}
